@@ -1,0 +1,38 @@
+---
+- name: Make sure user account exists
+  user:
+    name: "{{ user }}"
+  become: true
+
+- name: Install dependencies
+  yum:
+    name:
+      - curl
+      - mailx
+  become: true
+
+- name: Install slacktee
+  copy:
+    dest: /usr/local/bin/slacktee
+    mode: 0755
+    src: slacktee.sh
+  become: true
+
+- name: Copy slacktee configuration file
+  copy:
+    dest: ~{{ user }}/.slacktee
+    group: "{{ user }}"
+    mode: 0664
+    owner: "{{ user }}"
+    src: .slacktee
+  become: true
+
+- name: Create systemd services
+  template:
+    dest: /etc/systemd/system/{{ item }}
+    src: "{{ item }}.template"
+  with_items:
+    - alert-email@.service
+    - alert-slack@.service
+  become: true
+  notify: Reload systemd

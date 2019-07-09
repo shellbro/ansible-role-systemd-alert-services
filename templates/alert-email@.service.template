@@ -1,0 +1,7 @@
+[Unit]
+Description=Email alert
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c '/usr/bin/journalctl --unit=%i --lines=100 --since="1 hour ago" | /usr/bin/mail -S sendwait -s "[systemd] Email alert for unit %i" {{ email }}'
+User={{ user }}

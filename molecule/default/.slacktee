@@ -1,0 +1,7 @@
+webhook_url=""
+token=""
+tmp_dir="/tmp"
+channel="general"
+username="systemd"
+icon="ghost"
+attachment=""

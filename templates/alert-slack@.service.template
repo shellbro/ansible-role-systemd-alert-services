@@ -1,0 +1,7 @@
+[Unit]
+Description=Slack alert
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c '/usr/bin/journalctl --unit=%i --lines=100 --since="1 hour ago" | /usr/local/bin/slacktee --no-output --title "[systemd] Slack alert for unit %i"'
+User={{ user }}

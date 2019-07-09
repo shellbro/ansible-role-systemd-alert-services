@@ -5,7 +5,7 @@ Ansible role for creating systemd alert services (CentOS 7).
 
 Alert services can be used in `OnFailure=` definitions of other units to issue
 notifications about failures. Two alert services are created at the moment
-`alert-email@` and `alert-slack@`. It uses
+`alert-email@` and `alert-slack@`. The latter one utilizes
 [slacktee](https://github.com/coursehero/slacktee) for Slack integration.
 
 
@@ -15,7 +15,8 @@ Requirements
 Ansible version >= 2.4.
 
 In addition, `slacktee` configuration file `.slacktee` must be present in
-Ansible working directory (or `files` directory). `.slacktee` has the form of:
+Ansible working directory (or `files` directory). `.slacktee` file has the form
+of:
 
 ```
 webhook_url=""

@@ -1,6 +1,8 @@
 shellbro.systemd_alert_services
 ===============================
 
+[![Build Status](https://travis-ci.org/shellbro/ansible-role-systemd-alert-services.svg?branch=master)](https://travis-ci.org/shellbro/ansible-role-systemd-alert-services)
+
 Ansible role for creating systemd alert services (CentOS 7).
 
 Alert services can be used in `OnFailure=` definitions of other units to issue

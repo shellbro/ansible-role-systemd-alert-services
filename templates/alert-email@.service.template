@@ -3,5 +3,5 @@ Description=Email alert
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/bash -c '/usr/bin/journalctl --unit=%i --lines=20 --since="1 hour ago" | /usr/bin/mail -S sendwait -s "[systemd] Email alert for unit %i" {{ email }}'
+ExecStart=/usr/bin/bash -c '/usr/bin/journalctl --unit=%i --since="1 hour ago" | /usr/bin/tail --lines=20 | /usr/bin/mail -S sendwait -s "[systemd] Email alert for unit %i" {{ email }}'
 User={{ user }}

@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   author: Jakub Gorczyca
+  role_name: systemd_alert_services
   description: Ansible role for creating systemd alert services (CentOS 7).
 
   issue_tracker_url: https://github.com/shellbro/ansible-role-systemd-alert-services/issues
